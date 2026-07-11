@@ -67,7 +67,7 @@ def setup_db(conn):
 
 def load_apns(conn):
     rows = conn.execute(
-        "SELECT accountno, PARCELNB FROM parcels WHERE accountno != '' AND accountno IS NOT NULL"
+        "SELECT accountno, PARCELNB_1 FROM parcels WHERE accountno != '' AND accountno IS NOT NULL"
     ).fetchall()
     return [(apn.strip(), (alt or "").strip()) for apn, alt in rows if apn and apn.strip()]
 
